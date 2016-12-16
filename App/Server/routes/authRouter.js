@@ -19,19 +19,19 @@ router.get('/facebook', passport.authenticate('facebook'));
 router.get('/facebook/callback',
   passport.authenticate('facebook', {
     successRedirect: '/',
-    failureRedirect: '/login'
+    failureRedirect: '/'
   })
 );
 
 // Redirect the user to Twitter for authentication.  When complete,
 // Facebook will redirect the user back to the application at
-//     /auth/twitte/callback
+//     /auth/twitter/callback
 router.get('/twitter', passport.authenticate('twitter'));
 
 router.get('/twitter/callback', 
   passport.authenticate('twitter', {
     successRedirect: '/',
-    failureRedirect: '/login'
+    failureRedirect: '/'
   })
 );
 

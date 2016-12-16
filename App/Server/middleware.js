@@ -8,6 +8,9 @@ const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 
+const findOrCreate = require('mongoose-findorcreate');
+plugin(findOrCreate);
+
 const userHandler = require('./handlers/userHandler.js');
 const User = require('../Database/models/userModel.js');
 
