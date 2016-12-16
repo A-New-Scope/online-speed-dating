@@ -66,7 +66,11 @@ module.exports = function(app, express) {
     callbackURL: "/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate(..., function(err, user) {
+    console.log('profile is ', profile);
+    User.findOrCreate({
+      facebookId: profile.id,
+      
+    }, function(err, user) {
       if (err) { return done(err); }
       done(null, user);
     });
