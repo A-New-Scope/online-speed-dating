@@ -77,8 +77,8 @@ module.exports = function(app, express) {
   ));
 
   passport.use(new TwitterStrategy({
-    consumerKey: TWITTER_CONSUMER_KEY,
-    consumerSecret: TWITTER_CONSUMER_SECRET,
+    consumerKey: process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: '/auth/twitter/callback'
   },
     function(token, tokenSecret, profile, done) {
