@@ -1,15 +1,17 @@
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var path = require('path');
-var passport = require('passport');
-var session = require('express-session');
-var LocalStrategy = require('passport-local').Strategy;
-var facebookStrategy = require('passport-facebook').Strategy;
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const path = require('path');
+const session = require('express-session');
 
-var userHandler = require('./handlers/userHandler.js');
-var User = require('../Database/models/userModel.js');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const facebookStrategy = require('passport-facebook').Strategy;
+const twitterStrategy = require('passport-twitter').Strategy;
 
-var sessionOptions = { 
+const userHandler = require('./handlers/userHandler.js');
+const User = require('../Database/models/userModel.js');
+
+const sessionOptions = { 
   secret: 'keyboard cat',
   saveUninitialized: true,
   resave: false
@@ -56,6 +58,19 @@ module.exports = function(app, express) {
         return done(null, user);
       }); 
     }
-  )); 
+  ));
+
+  passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: "/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate(..., function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
 };
 
