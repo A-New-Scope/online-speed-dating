@@ -23,6 +23,18 @@ router.get('/facebook/callback',
   })
 );
 
+// Redirect the user to Twitter for authentication.  When complete,
+// Facebook will redirect the user back to the application at
+//     /auth/twitte/callback
+router.get('/twitter', passport.authenticate('twitter'));
+
+router.get('/twitter/callback', 
+  passport.authenticate('twitter', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  })
+);
+
 router.post('/authorize', ensureLoggedIn({ redirectTo: '/error', setReturnTo: false }), function(req, res) {
   console.log('user was authorized');
   res.send(req.user);

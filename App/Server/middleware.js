@@ -65,16 +65,30 @@ module.exports = function(app, express) {
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: '/auth/facebook/callback'
   },
-  function(accessToken, refreshToken, profile, done) {
-    console.log('profile is ', profile);
-    User.findOrCreate({
-      facebookId: profile.id,
+    function(accessToken, refreshToken, profile, done) {
+      console.log('profile is ', profile);
+      User.findOrCreate({
+        facebookId: profile.id,
+      }, function(err, user) {
+        if (err) { return done(err); }
+        done(null, user);
+      });
+    }
+  ));
 
-    }, function(err, user) {
-      if (err) { return done(err); }
-      done(null, user);
-    });
-  }
-));
+  passport.use(new TwitterStrategy({
+    consumerKey: TWITTER_CONSUMER_KEY,
+    consumerSecret: TWITTER_CONSUMER_SECRET,
+    callbackURL: '/auth/twitter/callback'
+  },
+    function(token, tokenSecret, profile, done) {
+      User.findOrCreate({
+        twitterId: profile.id
+      }, function(err, user) {
+        if (err) { return done(err); }
+        done(null, user);
+      });
+    }
+  ));
 };
 
