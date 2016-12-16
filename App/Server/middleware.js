@@ -5,8 +5,8 @@ const session = require('express-session');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const facebookStrategy = require('passport-facebook').Strategy;
-const twitterStrategy = require('passport-twitter').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+const TwitterStrategy = require('passport-twitter').Strategy;
 
 const userHandler = require('./handlers/userHandler.js');
 const User = require('../Database/models/userModel.js');
