@@ -13,7 +13,10 @@ var userSchema = mongoose.Schema({
   events: {type: Array, default: []},
   callList: {type: Array, default: []},
   matches: {type: Array, default: []},
-  likes: {type: Array, default: []}
+  likes: {type: Array, default: []},
+  provider: {type: String},
+  facebookId: {type: String},
+  twitterId: {type: String}
 });
 
 var eventSchema = mongoose.Schema({
