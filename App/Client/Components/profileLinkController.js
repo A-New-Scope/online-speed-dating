@@ -11,6 +11,7 @@ const profileLink = {
 
   computed: {
     username () {
+      console.log('this.$store.state.user.username is ', this.$store.state.user.username);
       return this.$store.state.user.username;
     }
   },
