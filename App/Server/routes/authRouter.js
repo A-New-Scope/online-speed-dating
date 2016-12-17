@@ -28,12 +28,17 @@ router.get('/facebook/callback',
 //     /auth/twitter/callback
 router.get('/twitter', passport.authenticate('twitter'));
 
-router.get('/twitter/callback', 
-  passport.authenticate('twitter', {
-    successRedirect: '/',
-    failureRedirect: '/'
-  })
-);
+router.get('/twitter/callback',
+function(req, res, next) {
+  console.log('alkjsd;f');
+  next();
+}, 
+  passport.authenticate('twitter', { failureRedirect: '/definitelynotapage' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log('success');
+    res.redirect('/#/events');
+  });
 
 router.post('/authorize', ensureLoggedIn({ redirectTo: '/error', setReturnTo: false }), function(req, res) {
   console.log('user was authorized');

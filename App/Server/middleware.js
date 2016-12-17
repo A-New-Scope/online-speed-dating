@@ -21,11 +21,7 @@ module.exports = function(app, express) {
   app.use('/', express.static(path.join(__dirname, '../../dist')));
   console.log('__dirname is ', __dirname);
   console.log('serving static on ', path.join(__dirname, '../../dist'));
-  // app.use('/dist', express.static(path.join(__dirname, '../../compiled/transpiled')));
-/*  app.get('/dist/main.js', function(req, res) {
-    console.log('called');
-    res.sendFile(path.join(__dirname, '../../compiled/transpiled/main.js'));
-  });*/
+
   app.use(morgan('dev'));
   app.use(bodyParser.json());
   app.use(session(sessionOptions));
@@ -33,6 +29,7 @@ module.exports = function(app, express) {
   app.use(passport.session());
 
   passport.serializeUser(function(user, done) {
+    console.log('serializeUser is ', user);
     done(null, user._id);
   });
 
@@ -103,24 +100,28 @@ module.exports = function(app, express) {
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: '/auth/twitter/callback'
   },
-    function(accessToken, refreshToken, profile, done) {
+    function(accessToken, tokenSecret, profile, done) {
+      console.log('accessToken is ', accessToken);
+      console.log('tokenSecret is ', tokenSecret);
       console.log('profile is ', profile);
+      console.log('done is ', done);
       User.findOne({
         'twitterId': profile.id 
       },
       function(err, user) {
         if (err) {
+          console.log('error is ', err);
           return done(err);
         }
-        //No user was found... so create a new user with values from Facebook (all the profile. stuff)
+        //No user was found... so create a new user with values from Twitter (all the profile. stuff)
         if (!user) {
+          console.log('user does not exist... creating new user...');
           user = new User({
-            name: profile.displayName,
-            email: profile.emails[0].value,
+            name: profile.name,
             username: profile.username,
-            provider: 'facebook',
-            //now in the future searching on User.findOne({'facebook.id': profile.id } will match because of this next line
-            facebook: profile._json
+            provider: 'twitter',
+            twitterId: profile.id,
+            profileImg: profile._json.profile_img_url
           });
           user.save(function(err) {
             if (err) { 
@@ -130,6 +131,7 @@ module.exports = function(app, express) {
           });
         } else {
           //found user. Return
+          console.log('user found. user is ', user);
           return done(err, user);
         }
       });
