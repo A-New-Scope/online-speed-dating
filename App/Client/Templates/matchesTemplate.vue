@@ -1,10 +1,11 @@
 <template>
+
   <div v-if='$store.state.matches'>
-    people like you
+    <h1>people like you</h1>
   </div>
 
   <div v-else>
-    nobody likes you
+    <h1>nobody likes you</h1>
   </div>
 
 </template>

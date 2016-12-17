@@ -33,6 +33,10 @@ const profileLink = {
       this.$router.push('/events');
     },
 
+    goToMatches: function() {
+      this.$router.push('/matches');
+    },
+
     logout: function() {
       this.$router.push('/');
       this.$store.commit('clearState');
