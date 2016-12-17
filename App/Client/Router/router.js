@@ -105,7 +105,6 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     Vue.http.post('auth/authorize')
       .then((res) => {
-        console.log('res from auth authorize', res.body);
         store.commit('setUser', res.body);
         store.commit('setSavedEvents', res.body.events);
         next();

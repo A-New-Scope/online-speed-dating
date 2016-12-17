@@ -22,7 +22,7 @@ var store = new Vuex.Store({
     allEvents: [],
     navigatedToEvent: null, //sets on link navigation to an event
     readyEvents: [], //new storage for set up events here
-    matches: null,
+    matches: [],
     user: {
       username: '',
     }
