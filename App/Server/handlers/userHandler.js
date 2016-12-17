@@ -1,6 +1,5 @@
-var userModel = require('../../Database/models/userModel.js');
-var db = require('../../Database/config.js');
-var User = require('../../Database/models/userModel.js');
+const db = require('../../Database/config.js');
+const User = require('../../Database/models/userModel.js');
 
 exports.getUserDB = function(username, cb) {
   User.findOne({ username: username})
