@@ -1,5 +1,5 @@
 <template>
- <section id="about" class="container content-section text-center">
+ <section id="about" class="container content-section text-center" v-if='!this.$store.state.user.username'>
         <div class="row">
             <h2>About Us</h2>
             <div class="container">
