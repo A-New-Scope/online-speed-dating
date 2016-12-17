@@ -13,6 +13,7 @@ import store from '../store.js';
 import events from '../Components/eventsController.js';
 import activeDate from '../Components/activeDateController.js';
 import myProfile from '../Components/myProfileController.js';
+import matches from '../Components/matchesController.js';
 
 
 var routes = [
@@ -31,7 +32,6 @@ var routes = [
   },
   {
     path: '/Admin',
-    // meta: { requiresAdmin: true },
     component: admin,
   },
   {
@@ -60,16 +60,16 @@ var routes = [
     component: blank,
     meta: { requiresAuth: true },
     children: [
-      // {
-      //   path: '/signup',
-      //   component: eventSignup,
-      //   meta: { requiresAuth: true },
-      // },
       {
         path: '',
         component: events,
       }
     ]
+  },
+  {
+    path: '/matches',
+    meta: { requiresAuth: true },
+    component: matches,
   },
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -105,7 +105,6 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     Vue.http.post('auth/authorize')
       .then((res) => {
-        console.log('res from auth authorize', res.body);
         store.commit('setUser', res.body);
         store.commit('setSavedEvents', res.body.events);
         next();
@@ -132,28 +131,6 @@ router.beforeEach((to, from, next) => {
     next();
   }
 
-  //NOT CURRENTLY USED
-  // if (to.matched.some(record => record.meta.requiresAdmin)) {
-  //   // console.log('requres admin', store.state.user);
-  //   if (store.state.user) {
-  //     // console.log('logged in');
-  //     if (store.state.user.admin) {
-  //       // console.log('logged in as admin');
-  //       next();
-  //     } else {
-  //       // console.log('logged in but no admin');
-  //       next({
-  //         path: '/'
-  //       });
-  //     }
-  //   } else {
-  //     // console.log('not logged in');
-  //     next({
-  //       path: '/'
-  //     }
-  //     );
-  //   }
-  // }
 });
 
 export default router;

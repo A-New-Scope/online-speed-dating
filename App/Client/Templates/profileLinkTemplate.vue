@@ -12,6 +12,9 @@
                         <button v-on:click.prevent="goToEvents" type="submit" class="btn btn-primary btn-block">Events</button>
                     </li>
                     <li>
+                        <button v-on:click.prevent="goToMatches" type="submit" class="btn btn-primary btn-block">My Matches</button>
+                    </li>
+                    <li>
                         <button v-on:click.prevent="goToMyProfile" type="submit" class="btn btn-primary btn-block">My Room</button>
                     </li>
                     <li>

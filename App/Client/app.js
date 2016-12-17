@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueResource from 'vue-resource'; 
+import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
 
 import router from './Router/router.js';

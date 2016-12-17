@@ -37,10 +37,6 @@ const activeDate = {
     callCallee: function() {
       this.$store.state.phone.dial(this.$store.state.user.callList[this.$store.state.currentRound]);
     },
-  },
-
-
-
 
     ///////////////////////////////////////////////////////////////////
 
@@ -48,14 +44,18 @@ const activeDate = {
 
     //in this controller and view
     //add method that updates user likes store with an http post
-    //update user schema to hold likes
     //can ignore the dislike button and putting any logic behind it
 
-      //likeCallee: function(){
-        //var callee = this.$store.state.user.callList[this.$store.state.currentRound];
-        //this.$http.post('some new route', callee);
-      //};
+    likeCallee: function() {
+      var caller = this.$store.state.user.username
+      var callee = this.$store.state.user.callList[this.$store.state.currentRound];
+      this.$http.post('/likes', {
+        sessionUser: caller,
+        likedUser: callee
+      });
+    }
 
+  },
 
     // GETTING MATCHES
 
@@ -79,4 +79,4 @@ const activeDate = {
   name: 'activeDate'
 };
 
-export default activeDate;
+export default activeDate
