@@ -1,5 +1,5 @@
 <template>
-   <section id="techStack" class="content-section text-center">
+   <section id="techStack" class="content-section text-center" v-if='!this.$store.state.user.username'>
         <div class="container">
             <h2>Tech. Stack</h2>
             <div class="row tech">
