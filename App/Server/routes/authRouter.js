@@ -18,8 +18,8 @@ router.get('/facebook', passport.authenticate('facebook'));
 // authentication has failed.
 router.get('/facebook/callback',
   passport.authenticate('facebook', {
-    successRedirect: '/',
-    failureRedirect: '/'
+    successRedirect: '/#/events',
+    failureRedirect: '/definitelynotapage'
   })
 );
 
