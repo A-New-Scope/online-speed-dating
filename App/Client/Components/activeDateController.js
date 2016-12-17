@@ -76,26 +76,6 @@ const activeDate = {
 
     ///////////////////////////////////////////////////////////////////
 
-
-  //   TESTcurrentRoundButton: function(number) {
-  //     this.$store.state.pubnub.publish({
-  //       message: number,
-  //       channel: [this.event._id.$oid]
-  //     });
-  //   },
-
-  //   TESTendEventButton: function() {
-  //     this.$store.state.pubnub.publish({
-  //       message: 'End',
-  //       channel: [this.event._id.$oid]
-  //     });
-
-  //   },
-  //   TESTSoloView: function() {
-  //     this.$store.state.soloViewFlag = !this.$store.state.soloViewFlag;
-  //   }
-  // },
-
   name: 'activeDate'
 };
 
