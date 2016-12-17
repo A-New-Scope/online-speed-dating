@@ -79,4 +79,4 @@ const activeDate = {
   name: 'activeDate'
 };
 
-export default activeDate;
+export default activeDate
