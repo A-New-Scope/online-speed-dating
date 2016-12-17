@@ -15,7 +15,7 @@ router.put('/events', eventHandler.updateEvent);
 router.get('/user/events', eventHandler.getSingleEvent);
 
 //add more routes to handle matches
-router.get('/matches', matchesHandler.getMatches);
-router.post('/matches', matchesHandler.updateMatches);
+router.post('/matches', matchesHandler.getMatches);
+router.post('/likes', matchesHandler.updateLikes);
 
 module.exports = router;

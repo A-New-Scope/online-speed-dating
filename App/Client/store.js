@@ -22,6 +22,7 @@ var store = new Vuex.Store({
     allEvents: [],
     navigatedToEvent: null, //sets on link navigation to an event
     readyEvents: [], //new storage for set up events here
+    matches: null,
     user: {
       username: '',
     }
@@ -184,6 +185,10 @@ var store = new Vuex.Store({
     setNavigatedToEvent (state, event) {
       state.navigatedToEvent = event;
     }, //set navigated to last link clicked on
+
+    setMatches (state, event) {
+      state.matches = event;
+    },
 
     addToSavedEvents(state, arr) {
       state.savedEvents = arr;
