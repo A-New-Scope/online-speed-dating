@@ -37,6 +37,7 @@ const activeDate = {
     callCallee: function() {
       this.$store.state.phone.dial(this.$store.state.user.callList[this.$store.state.currentRound]);
     },
+  },
 
 
 
