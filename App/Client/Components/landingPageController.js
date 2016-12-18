@@ -4,8 +4,8 @@ var app = {
   template: temp.template,
   data: function() {
     return {
-      msg: 'placeholder', //+ this.$store.state.user.username,
-      background: '#'
+      msg: 'Welcome to VidDate!', //+ this.$store.state.user.username,
+      background: './images/background.jpg'
     };
   },
 
