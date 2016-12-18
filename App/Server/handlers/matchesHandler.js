@@ -9,17 +9,19 @@ exports.getMatches = function (req, res) {
       console.log('checking', likedUser)
       User.findOne({username: likedUser})
       .then(function (userRecord) {
-        console.log('user record', userRecord.likes)
         if (userRecord.likes.indexOf(req.body.sessionUser) !== -1) {
           console.log('new match!')
           // add likedUser to matches array of sessionUser
-          likedUsersToUpload.push(likedUser);
-          console.log("array updated", likedUsersToUpload)
-          if(likedUser === data.likes[data.likes.length-1]){ //if at end of list, send response
-            res.send(likedUsersToUpload)
+          if(likedUsersToUpload.indexOf(likedUser) === -1){ //prevent duplicates
+            likedUsersToUpload.push(likedUser);
+            console.log("array updated", likedUsersToUpload)
           }
           // to handle adding sessionUser to matches array of likedUser,
           // this function will run across all users
+        }
+        if(likedUser === data.likes[data.likes.length-1]){ //if at end of list, send response
+            console.log("sending array", likedUsersToUpload)
+            res.send(likedUsersToUpload)
         }
       });
     });
@@ -28,10 +30,7 @@ exports.getMatches = function (req, res) {
 
 exports.updateLikes = function (req, res) {
   console.log("updating likes with", req.body)
-  // User.findOneAndUpdate({username: }, {$push: {likes: 'test'}}).then(function(){
-  //   res.end()
-  // })
-
-  res.end()
-
+  User.findOneAndUpdate({username: req.body.sessionUser}, {$push: {likes: req.body.likedUser}}).then(function(data) {
+    res.end()
+  })
 };
