@@ -5,7 +5,7 @@ var app = {
   data: function() {
     return {
       msg: 'Welcome to VidDate!', //+ this.$store.state.user.username,
-      background: '../Images/background.jpg'
+      background: './images/background.jpg'
     };
   },
 
