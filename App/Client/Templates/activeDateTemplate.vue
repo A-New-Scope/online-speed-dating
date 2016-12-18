@@ -25,6 +25,7 @@
             </template>
             <template v-else>
                 <video v-bind:src='$store.state.videoOutSrc' autoplay='autoplay'></video>
+                <button v-on:click.prevent="likeCallee"> LIKE </button>
             </template>
 
         </template>
