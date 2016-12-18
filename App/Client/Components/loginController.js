@@ -23,6 +23,9 @@ const login = {
         this.$store.commit('setUser', body);
         this.$store.commit('setSavedEvents', body.events);
       })
+      .then((res) => {
+        res.redirect('/#/events');
+      })
       .catch((err) => console.error(err));
     }
   },

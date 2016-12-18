@@ -136,5 +136,10 @@ module.exports = function(app, express) {
       });
     }
   ));
+  
+  app.use(function(err, req, res, next) {
+    console.error(err);
+  });
+
 };
 
