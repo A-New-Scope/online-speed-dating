@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container landing">
 
   	<form class="well form-horizontal" action=" " method="post"  id="contact_form">
 			<legend>Sign Up!</legend>
@@ -32,4 +32,3 @@
 		</form>
 	</div>
 </template> 
-

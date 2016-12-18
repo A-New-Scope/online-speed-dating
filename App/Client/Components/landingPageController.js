@@ -4,7 +4,7 @@ var app = {
   template: temp.template,
   data: function() {
     return {
-      msg: 'Welcome to VidDate!', //+ this.$store.state.user.username,
+      msg: 'VidDate!', //+ this.$store.state.user.username,
       background: './images/background.jpg'
     };
   },
