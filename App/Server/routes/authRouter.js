@@ -19,7 +19,7 @@ router.get('/facebook', passport.authenticate('facebook'));
 router.get('/facebook/callback',
   passport.authenticate('facebook', {
     successRedirect: '/#/events',
-    failureRedirect: '/definitelynotapage'
+    failureRedirect: '/'
   })
 );
 
@@ -33,7 +33,7 @@ function(req, res, next) {
   console.log('alkjsd;f');
   next();
 }, 
-  passport.authenticate('twitter', { failureRedirect: '/definitelynotapage' }),
+  passport.authenticate('twitter', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
     console.log('success');

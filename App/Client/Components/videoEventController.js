@@ -84,7 +84,7 @@ setTimeout(function() {
 
 }, eventCallDuration);
     //check number of calls
-if (totalCalls === eventCalleeList.lenght) {
+if (totalCalls === eventCalleeList.length) {
       //event is over, transition to another page, hangup/destroy phone
 }
 
