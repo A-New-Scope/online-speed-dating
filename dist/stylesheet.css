@@ -139,9 +139,11 @@ body {
     background: none;
     font-size: 99px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    margin-top: 100px;
-    margin-left: 160px;
+    margin-top: 140px;
+    margin-left: 200px;
     display: inline-block;
+    position: absolute;
+    top: 150px;
 }
 
 /*signup div*/
@@ -150,12 +152,24 @@ body {
     margin-top: 90px;
     margin-right: 40px;
     display: inline-block;
+    position: absolute;
+    left: 800px;
+    top: 200px;
 }
 .well.form-horizontal {
     opacity: 0.95;
 }
 .input-group {
     width: 250px;
+}
+
+.jumbotron-icon .fa-home {
+    font-size: 9em;
+}
+
+.home {
+    width: 35px;
+    margin-top: 5px;
 }
 
 
