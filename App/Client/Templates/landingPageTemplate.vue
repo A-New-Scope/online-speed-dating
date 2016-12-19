@@ -5,7 +5,7 @@
 
         {{ msg }}
     </div>
-    <signup></signup>
+    <signup v-if='!this.$store.state.user.username'></signup>
     <aboutus></aboutus>
     <techstack></techstack>
 </div>

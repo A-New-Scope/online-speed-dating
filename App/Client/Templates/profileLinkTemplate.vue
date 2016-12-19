@@ -54,11 +54,11 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="bottom text-center">
+<!--                             <div class="bottom text-center">
                                 Need an account?
                                 <router-link to='/signup'><a href="#/signup"><b>Sign up</b></a>
                                 </router-link>
-                            </div>
+                            </div> -->
                         </div>
                     </li>
                 </ul>

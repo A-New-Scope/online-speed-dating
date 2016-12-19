@@ -26,7 +26,9 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label"></label>
 				<div class="col-md-4">
-					<button type="submit" class="btn btn-warning" v-on:click.prevent='signup'>Join! <span class="glyphicon glyphicon-send"></span></button>
+					<button type="submit" class="btn btn-warning" v-on:click.prevent='signup'>Join! <span class="glyphicon glyphicon-send"><router-link to='/myprofile/:id''><a href="#/myprofile/:id'"></a>
+              </router-link></span>
+					</button>
 				</div>
 			</div>
 		</form>
