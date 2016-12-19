@@ -7,9 +7,11 @@ import store from './store.js';
 
 import login from './Components/loginController.js';
 import profileLink from './Components/profileLinkController.js';
+import signup from './Components/signupController.js'
 
 import aboutus from './Components/aboutUsController.js';
 import techstack from './Components/techStackController.js';
+
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
@@ -18,6 +20,7 @@ Vue.component('login', login);
 Vue.component('profilelink', profileLink);
 Vue.component('aboutus', aboutus);
 Vue.component('techstack', techstack);
+Vue.component('signup', signup);
 
 const app = new Vue({
   store,

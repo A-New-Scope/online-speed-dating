@@ -128,6 +128,37 @@ body {
     color: #fff;
     background-color:#59b5fa;
 }
+
+.messageContainer {
+    padding-top: none;
+}
+
+.message {
+    width: 600px;
+    font-family: 'Architects Daughter', cursive;
+    background: none;
+    font-size: 99px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin-top: 100px;
+    margin-left: 160px;
+    display: inline-block;
+}
+
+/*signup div*/
+.container.landing {
+    width: 580px;
+    margin-top: 90px;
+    margin-right: 40px;
+    display: inline-block;
+}
+.well.form-horizontal {
+    opacity: 0.95;
+}
+.input-group {
+    width: 250px;
+}
+
+
 @media(max-width:768px){
     #login-dp{
         background-color: inherit;
